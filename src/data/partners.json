@@ -1,0 +1,38 @@
+[
+  {
+    "partnerId": "nestle",
+    "name": "Nestlé",
+    "items": [
+      {
+        "id": "partner-nestle-1",
+        "title": "Nestlé Data Privacy Handbook",
+        "content": "All research involving Nestlé customer data must adhere to the Global Data Privacy Regulation (GDPR) and Nestlé's internal data handling policies. Data must be anonymized before analysis and stored only on encrypted university-approved devices.",
+        "category": "requirements"
+      },
+      {
+        "id": "partner-nestle-2",
+        "title": "Nestlé Corporate Identity Guidelines",
+        "content": "If your thesis results in a presentation or report for Nestlé stakeholders, use the official corporate font (Nestlé Sans) and the secondary color palette. Use the Nestlé logo only on the title slide/page, following the 1xD exclusion zone rule.",
+        "category": "guidelines"
+      }
+    ]
+  },
+  {
+    "partnerId": "abb",
+    "name": "ABB",
+    "items": [
+      {
+        "id": "partner-abb-1",
+        "title": "ABB Safety Protocols for Site Visits",
+        "content": "Minimum PPE requirements for all ABB production sites: safety shoes (S3), high-visibility vest, and safety glasses. Site-specific safety induction must be completed 48 hours prior to your first visit. Contact your ABB industrial supervisor for the induction link.",
+        "category": "guidelines"
+      },
+      {
+        "id": "partner-abb-2",
+        "title": "ABB Intellectual Property & NDA",
+        "content": "As per the Master Collaboration Agreement, all innovations resulting from this thesis are jointly owned. A 6-week review period is required before any publication or submission to the university library to ensure no trade secrets are inadvertently disclosed.",
+        "category": "requirements"
+      }
+    ]
+  }
+]

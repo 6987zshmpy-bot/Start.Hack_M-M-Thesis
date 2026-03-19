@@ -1,0 +1,218 @@
+[
+  {
+    "id": "student-01",
+    "name": "Luca Meier",
+    "email": "luca.meier@student.ethz.ch",
+    "topic": "AI-Driven Demand Forecasting for Perishable Goods",
+    "topicId": "topic-01",
+    "company": "Nestle",
+    "supervisor": "Prof. Dr. Sibylle Hechberger",
+    "degree": "MSc Computer Science",
+    "university": "ETH Zurich",
+    "startDate": "2026-01-15",
+    "deadline": "2026-07-15",
+    "progress": 35,
+    "currentPhase": 2,
+    "lastActivity": "2 days ago",
+    "needsAttention": false,
+    "phases": [
+      {
+        "title": "Orientation and Setup",
+        "milestones": [
+          { "title": "Check formal requirements", "completed": true, "date": "2026-01-20" },
+          { "title": "Find and contact supervisor", "completed": true, "date": "2026-01-22" },
+          { "title": "Complete registration", "completed": true, "date": "2026-02-01" },
+          { "title": "Set up writing tools", "completed": true, "date": "2026-02-03" }
+        ]
+      },
+      {
+        "title": "Academic Planning",
+        "milestones": [
+          { "title": "Define and narrow topic", "completed": true, "date": "2026-02-10" },
+          { "title": "Formulate research question", "completed": true, "date": "2026-02-15" },
+          { "title": "Initial literature search", "completed": true, "date": "2026-02-25" },
+          { "title": "Define methodology", "completed": false },
+          { "title": "Create expose and timeline", "completed": false }
+        ]
+      },
+      {
+        "title": "Research and Execution",
+        "milestones": [
+          { "title": "Deep literature review", "completed": false },
+          { "title": "Prepare materials and data", "completed": false },
+          { "title": "Conduct analysis", "completed": false }
+        ]
+      },
+      {
+        "title": "Writing Phase",
+        "milestones": [
+          { "title": "Write methodology chapter", "completed": false },
+          { "title": "Write results chapter", "completed": false },
+          { "title": "Write theory chapter", "completed": false },
+          { "title": "Write discussion", "completed": false },
+          { "title": "Write introduction and conclusion", "completed": false },
+          { "title": "Write abstract", "completed": false }
+        ]
+      },
+      {
+        "title": "Revision and Submission",
+        "milestones": [
+          { "title": "Check sources and citations", "completed": false },
+          { "title": "Formal revision", "completed": false },
+          { "title": "Content review", "completed": false },
+          { "title": "Get feedback and revise", "completed": false },
+          { "title": "Final submission", "completed": false }
+        ]
+      }
+    ],
+    "recentMessages": [
+      { "question": "What methodology fits my demand forecasting problem?", "date": "2026-03-17" },
+      { "question": "Help me narrow my research question further", "date": "2026-03-15" },
+      { "question": "How do I structure a literature review?", "date": "2026-03-10" }
+    ],
+    "notes": ""
+  },
+  {
+    "id": "student-02",
+    "name": "Sarah Brunner",
+    "email": "sarah.brunner@student.ethz.ch",
+    "topic": "Wearable-Based Patient Monitoring for Clinical Trials",
+    "topicId": "topic-02",
+    "company": "Roche",
+    "supervisor": "Prof. Dr. Sibylle Hechberger",
+    "degree": "MSc Biomedical Engineering",
+    "university": "ETH Zurich",
+    "startDate": "2026-02-01",
+    "deadline": "2026-08-01",
+    "progress": 15,
+    "currentPhase": 1,
+    "lastActivity": "5 days ago",
+    "needsAttention": true,
+    "phases": [
+      {
+        "title": "Orientation and Setup",
+        "milestones": [
+          { "title": "Check formal requirements", "completed": true, "date": "2026-02-08" },
+          { "title": "Find and contact supervisor", "completed": true, "date": "2026-02-10" },
+          { "title": "Complete registration", "completed": true, "date": "2026-02-15" },
+          { "title": "Set up writing tools", "completed": false }
+        ]
+      },
+      {
+        "title": "Academic Planning",
+        "milestones": [
+          { "title": "Define and narrow topic", "completed": false },
+          { "title": "Formulate research question", "completed": false },
+          { "title": "Initial literature search", "completed": false },
+          { "title": "Define methodology", "completed": false },
+          { "title": "Create expose and timeline", "completed": false }
+        ]
+      },
+      {
+        "title": "Research and Execution",
+        "milestones": [
+          { "title": "Deep literature review", "completed": false },
+          { "title": "Prepare materials and data", "completed": false },
+          { "title": "Conduct analysis", "completed": false }
+        ]
+      },
+      {
+        "title": "Writing Phase",
+        "milestones": [
+          { "title": "Write methodology chapter", "completed": false },
+          { "title": "Write results chapter", "completed": false },
+          { "title": "Write theory chapter", "completed": false },
+          { "title": "Write discussion", "completed": false },
+          { "title": "Write introduction and conclusion", "completed": false },
+          { "title": "Write abstract", "completed": false }
+        ]
+      },
+      {
+        "title": "Revision and Submission",
+        "milestones": [
+          { "title": "Check sources and citations", "completed": false },
+          { "title": "Formal revision", "completed": false },
+          { "title": "Content review", "completed": false },
+          { "title": "Get feedback and revise", "completed": false },
+          { "title": "Final submission", "completed": false }
+        ]
+      }
+    ],
+    "recentMessages": [
+      { "question": "How do I approach patient data collection ethically?", "date": "2026-03-12" }
+    ],
+    "notes": "Needs guidance on ethics approval process."
+  },
+  {
+    "id": "student-03",
+    "name": "Jan Keller",
+    "email": "jan.keller@student.ethz.ch",
+    "topic": "Edge AI for Industrial Quality Inspection",
+    "topicId": "topic-09",
+    "company": "ABB",
+    "supervisor": "Prof. Dr. Sibylle Hechberger",
+    "degree": "B.Sc. Electrical Engineering",
+    "university": "ETH Zurich",
+    "startDate": "2025-11-01",
+    "deadline": "2026-05-01",
+    "progress": 68,
+    "currentPhase": 3,
+    "lastActivity": "1 day ago",
+    "needsAttention": false,
+    "phases": [
+      {
+        "title": "Orientation and Setup",
+        "milestones": [
+          { "title": "Check formal requirements", "completed": true, "date": "2025-11-05" },
+          { "title": "Find and contact supervisor", "completed": true, "date": "2025-11-08" },
+          { "title": "Complete registration", "completed": true, "date": "2025-11-15" },
+          { "title": "Set up writing tools", "completed": true, "date": "2025-11-18" }
+        ]
+      },
+      {
+        "title": "Academic Planning",
+        "milestones": [
+          { "title": "Define and narrow topic", "completed": true, "date": "2025-11-25" },
+          { "title": "Formulate research question", "completed": true, "date": "2025-12-01" },
+          { "title": "Initial literature search", "completed": true, "date": "2025-12-15" },
+          { "title": "Define methodology", "completed": true, "date": "2025-12-20" },
+          { "title": "Create expose and timeline", "completed": true, "date": "2026-01-05" }
+        ]
+      },
+      {
+        "title": "Research and Execution",
+        "milestones": [
+          { "title": "Deep literature review", "completed": true, "date": "2026-01-20" },
+          { "title": "Prepare materials and data", "completed": true, "date": "2026-02-10" },
+          { "title": "Conduct analysis", "completed": true, "date": "2026-03-05" }
+        ]
+      },
+      {
+        "title": "Writing Phase",
+        "milestones": [
+          { "title": "Write methodology chapter", "completed": true, "date": "2026-03-10" },
+          { "title": "Write results chapter", "completed": false },
+          { "title": "Write theory chapter", "completed": true, "date": "2026-03-15" },
+          { "title": "Write discussion", "completed": false },
+          { "title": "Write introduction and conclusion", "completed": false },
+          { "title": "Write abstract", "completed": false }
+        ]
+      },
+      {
+        "title": "Revision and Submission",
+        "milestones": [
+          { "title": "Check sources and citations", "completed": false },
+          { "title": "Formal revision", "completed": false },
+          { "title": "Content review", "completed": false },
+          { "title": "Get feedback and revise", "completed": false },
+          { "title": "Final submission", "completed": false }
+        ]
+      }
+    ],
+    "recentMessages": [
+      { "question": "How should I structure the results for the edge inference benchmarks?", "date": "2026-03-18" },
+      { "question": "Draft an email to ABB about the final presentation", "date": "2026-03-16" }
+    ],
+    "notes": "On track for deadline. Strong technical execution."
+  }
+]
