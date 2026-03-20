@@ -69,7 +69,7 @@ export function AppSidebar() {
       {/* Logo */}
       <div className="flex h-16 items-center border-b border-border px-5 gap-1.5">
         <img src="/studyond.svg" alt="Studyond" className="h-7 w-auto" />
-        <span className="text-2xl font-cursive text-primary translate-y-[2px] ml-0.5">
+        <span className="text-2xl text-primary translate-y-[1px] ml-0.5" style={{ fontFamily: 'var(--font-headline)', fontWeight: 400 }}>
           Journey
         </span>
       </div>

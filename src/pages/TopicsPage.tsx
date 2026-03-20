@@ -112,7 +112,7 @@ export function TopicsPage() {
   }
 
   return (
-    <div className="scroll-area flex flex-col items-center">
+    <div className="scroll-area flex flex-col items-center font-website">
       <div className="scroll-area-content w-full max-w-6xl px-4 pt-8 pb-16">
         {/* Header */}
         <div className="mb-8">

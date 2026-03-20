@@ -7,7 +7,7 @@ export function CommunityPage() {
   const { isDark } = useThesisStore();
 
   return (
-    <div className="scroll-area bg-background min-h-screen">
+    <div className="scroll-area bg-background min-h-screen font-website">
       <div className="scroll-area-content ds-layout-narrow mx-auto space-y-8">
         {/* Header */}
         <div className="flex flex-col gap-2">
