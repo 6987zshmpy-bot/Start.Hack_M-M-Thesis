@@ -22,6 +22,13 @@ import {
   Loader2,
 } from "lucide-react";
 import { useKnowledgeStore, type KBCategory, type KBItem } from "@/stores/knowledgeStore";
+import { TopicDetailSlideOver } from "@/components/topics/TopicDetailSlideOver";
+import { getCompanyName, getFieldName, getTopicById } from "@/utils/topicUtils";
+import studyPrograms from "@/data/study-programs.json";
+import topics from "@/data/topics.json";
+import type { Topic } from "@/data/types";
+
+const typedTopics = topics as Topic[];
 
 const categoryIcons: Record<KBCategory, any> = {
   requirements: FileText,
@@ -30,28 +37,6 @@ const categoryIcons: Record<KBCategory, any> = {
   templates: Layout,
   resources: FolderOpen,
 };
-import topics from "@/data/topics.json";
-import companies from "@/data/companies.json";
-import fields from "@/data/fields.json";
-import studyPrograms from "@/data/study-programs.json";
-import type { Topic, Company, Field } from "@/data/types";
-
-const typedTopics = topics as Topic[];
-const typedCompanies = companies as Company[];
-const typedFields = fields as Field[];
-
-function getCompanyName(id: string | null) {
-  if (!id) return null;
-  return typedCompanies.find((c) => c.id === id)?.name ?? null;
-}
-
-function getFieldName(id: string) {
-  return typedFields.find((f) => f.id === id)?.name ?? id;
-}
-
-function getTopicById(id: string) {
-  return typedTopics.find((t) => t.id === id) ?? null;
-}
 
 // Quiz-based topic matching
 function getQuizMatchedTopics(quizAnswers: string[]): Topic[] {
@@ -63,7 +48,7 @@ function getQuizMatchedTopics(quizAnswers: string[]): Topic[] {
 }
 
 export function DashboardPage() {
-  const { phases, currentPhase, thesisState, selectedTopicId, applicationMessage, getOverallProgress, getPhaseProgress, getNextAction, studentName, degree } = useThesisStore();
+  const { phases, currentPhase, thesisState, selectedTopicId, applicationMessage, getOverallProgress, getPhaseProgress, getNextAction, studentName, degree, applyForTopic } = useThesisStore();
   const navigate = useNavigate();
   const progress = getOverallProgress();
   const nextAction = getNextAction();
@@ -72,6 +57,7 @@ export function DashboardPage() {
   const selectedTopicCompany = selectedTopic ? getCompanyName(selectedTopic.companyId) : null;
   const { items: allKbItems } = useKnowledgeStore();
   const [selectedKbItem, setSelectedKbItem] = useState<KBItem | null>(null);
+  const [detailTopicId, setDetailTopicId] = useState<string | null>(null);
 
   // Magic Discovery Quiz state
   const [quizActive, setQuizActive] = useState(false);
@@ -86,7 +72,7 @@ export function DashboardPage() {
 
   const quizQuestions = [
     {
-      prompt: `Based on your profile, you studied ${degree} ${programName}. What was the most interesting part of your studies?`,
+      prompt: `Based on your profile, you studied ${programName}. What was the most interesting part of your studies?`,
       placeholder: "e.g. Machine learning, distributed systems, data engineering...",
     },
     {
@@ -125,12 +111,12 @@ export function DashboardPage() {
             {thesisState === "exploring"
               ? "Find the right thesis topic to get started."
               : thesisState === "application_pending"
-              ? "Your application has been sent. The supervisor will review it shortly."
-              : thesisState === "topic_selected"
-              ? "Your thesis topic has been approved!"
-              : thesisState === "submitted"
-              ? "Your thesis has been submitted. Congratulations."
-              : `Phase ${currentPhase + 1}: ${currentPhaseData?.shortTitle}`
+                ? "Your application has been sent. The supervisor will review it shortly."
+                : thesisState === "topic_selected"
+                  ? "Your thesis topic has been approved!"
+                  : thesisState === "submitted"
+                    ? "Your thesis has been submitted. Congratulations."
+                    : `Phase ${currentPhase + 1}: ${currentPhaseData?.shortTitle}`
             }
           </p>
         </div>
@@ -184,11 +170,10 @@ export function DashboardPage() {
                         setQuizAnswers(newAnswers);
                         handleQuizNext();
                       }}
-                      className={`flex-1 rounded-xl border p-4 text-left transition-all duration-200 hover:shadow-md ${
-                        quizAnswers[quizStep] === choice
+                      className={`flex-1 rounded-xl border p-4 text-left transition-all duration-200 hover:shadow-md ${quizAnswers[quizStep] === choice
                           ? "border-ai bg-ai/10 text-foreground"
                           : "border-border hover:border-ai/50 text-foreground"
-                      }`}
+                        }`}
                     >
                       <span className="ds-body">{choice}</span>
                     </button>
@@ -256,7 +241,7 @@ export function DashboardPage() {
                 <p className="ds-caption text-muted-foreground mt-0.5">Based on your interest in "{quizAnswers[0]}"</p>
               </div>
               <button
-                onClick={() => { setQuizComplete(false); setQuizActive(false); setQuizStep(0); setQuizAnswers(["","",""]); }}
+                onClick={() => { setQuizComplete(false); setQuizActive(false); setQuizStep(0); setQuizAnswers(["", "", ""]); }}
                 className="ds-small text-muted-foreground hover:text-foreground transition-colors"
               >
                 Retake quiz
@@ -268,7 +253,9 @@ export function DashboardPage() {
                 return (
                   <button
                     key={topic.id}
-                    onClick={() => navigate("/topics")}
+                    onClick={() => {
+                      setDetailTopicId(topic.id);
+                    }}
                     className="group rounded-2xl border border-border bg-card p-5 text-left transition-all duration-200 hover:border-primary/50 hover:shadow-lg"
                   >
                     <div className="flex items-center gap-1.5 mb-3">
@@ -360,13 +347,12 @@ export function DashboardPage() {
               ].map((step, i) => (
                 <div key={i} className="flex-1 flex items-center">
                   <div className="flex flex-col items-center w-full">
-                    <div className={`flex h-8 w-8 items-center justify-center rounded-full border-2 transition-all ${
-                      step.done
+                    <div className={`flex h-8 w-8 items-center justify-center rounded-full border-2 transition-all ${step.done
                         ? "border-primary bg-primary text-primary-foreground"
                         : step.active
-                        ? "border-primary bg-card text-primary"
-                        : "border-border bg-secondary text-muted-foreground/40"
-                    }`}>
+                          ? "border-primary bg-card text-primary"
+                          : "border-border bg-secondary text-muted-foreground/40"
+                      }`}>
                       {step.done ? (
                         <CheckCircle2 className="h-4 w-4" />
                       ) : step.active ? (
@@ -457,8 +443,8 @@ export function DashboardPage() {
             ["guidelines", "templates"],
             ["requirements", "resources"]
           ][currentPhase] || [];
-          
-          const phaseKbItems = allKbItems.filter(item => 
+
+          const phaseKbItems = allKbItems.filter(item =>
             (item.scope === "global" || item.topicId === selectedTopicId) &&
             relevantCategories.includes(item.category)
           ).slice(0, 2);
@@ -567,7 +553,7 @@ export function DashboardPage() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            
+
             <div className="overflow-y-auto p-6 scroll-area-content">
               <h2 className="ds-title-sm text-foreground mb-4">{selectedKbItem.title}</h2>
               <div className="ds-body text-foreground whitespace-pre-wrap leading-relaxed">
@@ -577,6 +563,10 @@ export function DashboardPage() {
           </div>
         </div>
       )}
+      <TopicDetailSlideOver
+        topic={detailTopicId ? getTopicById(detailTopicId) : null}
+        onClose={() => setDetailTopicId(null)}
+      />
     </div>
   );
 }
